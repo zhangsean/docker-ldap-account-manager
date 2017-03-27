@@ -19,7 +19,8 @@ RUN C_ALL=C DEBIAN_FRONTEND=noninteractive apt-get -y install ldap-account-manag
 # copy default config lam
 RUN cp -r /var/lib/ldap-account-manager/config /opt/lam
 
-EXPOSE 80
+#change expose port 80 to 8082
+EXPOSE 8082
 
 RUN rm /etc/apache2/sites-enabled/*default*
 
