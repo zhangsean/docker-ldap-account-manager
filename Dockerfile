@@ -14,9 +14,9 @@ RUN apt-get update \
 
 RUN a2enmod php7.0 && \
     ln -sf /dev/stdout /var/log/apache2/access.log && \
-    ln -sf /dev/stderr /var/log/apache2/error.log
+    ln -sf /dev/stderr /var/log/apache2/error.log && \
+    mount tmpfs /var/lib/ldap-account-manager/sess -t tmpfs -o size=32M
 
-#change expose port 80 to 8082
 EXPOSE 80
 
 COPY apache2-foreground /usr/local/bin/
