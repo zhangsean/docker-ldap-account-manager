@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e
+
+# Apache gets grumpy about PID files pre-existing
+rm -f /var/run/apache2/apache2.pid
+
+mount tmpfs /var/lib/ldap-account-manager/sess -t tmpfs -o size=32M
+
+if [[ ! -f /var/lib/ldap-account-manager/sess/.htaccess ]]; then
+cat << EOF > /var/lib/ldap-account-manager/sess/.htaccess
+<Files *>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</Files>
+EOF
+
+/usr/sbin/apache2ctl -D FOREGROUND
