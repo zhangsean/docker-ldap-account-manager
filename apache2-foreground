@@ -17,5 +17,6 @@ cat << EOF > /var/lib/ldap-account-manager/sess/.htaccess
   </IfModule>
 </Files>
 EOF
+fi
 
 /usr/sbin/apache2ctl -D FOREGROUND
