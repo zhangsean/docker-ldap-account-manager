@@ -16,8 +16,6 @@ RUN a2enmod php7.0 && \
     ln -sf /dev/stdout /var/log/apache2/access.log && \
     ln -sf /dev/stderr /var/log/apache2/error.log && \
 
-EXPOSE 80
-
 COPY apache2-foreground /usr/local/bin/
 
 EXPOSE 80
