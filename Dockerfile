@@ -15,7 +15,7 @@ RUN apt-get update \
 RUN a2enmod php7.0 && \
     ln -sf /dev/stdout /var/log/apache2/access.log && \
     ln -sf /dev/stderr /var/log/apache2/error.log && \
-    unlink /var/lib/ldap-account-manager/config/config && \
+    unlink /var/lib/ldap-account-manager/config/config.cfg && \
     ln -sf /config/config.cfg /var/lib/ldap-account-manager/config/config.cfg && \
     ln -sf /config/lam.cfg /var/lib/ldap-account-manager/config/lam.cfg
 
