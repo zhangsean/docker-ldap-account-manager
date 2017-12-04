@@ -17,7 +17,7 @@ EOF
 fi
 
 if [[ ! -f /config/setup ]]; then
-cat << EOF > /config/lam.cfg
+cat << EOF > /config/lam.conf
 # LDAP Account Manager configuration
 #
 # Please do not modify this file manually. The configuration can be done completely by the LAM GUI.
@@ -33,7 +33,7 @@ ServerURL: ldap://localhost:389
 Admins: cn=Manager,dc=my-domain,dc=com
 
 # password to change these preferences via webfrontend (default: lam)
-Passwd: lam
+passwd: {SSHA}D6AaX93kPmck9wAxNlq3GF93S7A= R7gkjQ==
 
 # suffix of tree view
 # e.g. dc=yourdomain,dc=org
