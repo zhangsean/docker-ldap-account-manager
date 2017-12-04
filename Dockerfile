@@ -17,7 +17,7 @@ RUN a2enmod php7.0 && \
     ln -sf /dev/stderr /var/log/apache2/error.log && \
     unlink /var/lib/ldap-account-manager/config/config.cfg && \
     ln -sf /config/config.cfg /var/lib/ldap-account-manager/config/config.cfg && \
-    ln -sf /config/lam.cfg /var/lib/ldap-account-manager/config/lam.cfg
+    ln -sf /config/lam.conf /var/lib/ldap-account-manager/config/lam.conf
 
 COPY apache2-foreground /usr/local/bin/
 
