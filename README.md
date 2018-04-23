@@ -6,9 +6,15 @@ This image will initialize a basic configuration of LAM.
 
 For example, to start a container running LAM, use the command:
 
-    docker run  -v /data/lam:/var/lib/ldap-account-manager/config \	
-	       -d aexoti/lam
+    docker run  -v /data/session:/var/lib/ldap-account-manager/sess \
+		-p 80:80 \
+	       -d jkpark/docker-ldap-account-manager
 
-Persistent data configuration for LAM is stored in /var/lib/ldap-account-manager/config
+Persistent data configuration for LAM is stored in /config if using Persistent data configuration for LAN 
 
+    docker run  -v /data/session:/var/lib/ldap-account-manager/sess \
+		-v /data/config:/conig \
+		-p 80:80 \
+	       -d jkpark/docker-ldap-account-manager
 
+you can find lam web ui here. http://localhost/lam
