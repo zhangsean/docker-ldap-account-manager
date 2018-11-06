@@ -13,7 +13,7 @@ For example, to start a container running LAM, use the command:
 Persistent data configuration for LAM is stored in /config if using Persistent data configuration for LAN 
 
     docker run  -v /data/session:/var/lib/ldap-account-manager/sess \
-		-v /data/config:/conig \
+		-v /data/config:/config \
 		-p 80:80 \
 	       -d jkpark/docker-ldap-account-manager
 
