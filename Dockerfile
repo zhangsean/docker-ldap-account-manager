@@ -1,4 +1,4 @@
-FROM php:7-alpine
+FROM php:7-apache
 MAINTAINER jaekwon park <jaekwon.park@code-post.com>
 
 ARG LAM_VERSION=6.5
