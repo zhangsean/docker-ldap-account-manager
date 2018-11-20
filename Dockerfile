@@ -14,7 +14,7 @@ RUN apt-get update && \
   mv /var/lib/ldap-account-manager-${LAM_VERSION} /var/lib/ldap-account-manager && \
   apt-get purge -y wget ca-certificates && apt-get autoremove -y && apt-get clean all && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN a2enmod php7.2 && \
+RUN a2enmod && \
     ln -sf /dev/stdout /var/log/apache2/access.log && \
     ln -sf /dev/stderr /var/log/apache2/error.log && \
     unlink /var/lib/ldap-account-manager/config/config.cfg && \
