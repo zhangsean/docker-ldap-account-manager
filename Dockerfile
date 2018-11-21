@@ -10,19 +10,20 @@ RUN apt-get update && \
   libjbig0 libjbig2dec0 liblcms2-2 liblqr-1-0 libltdl7 libpaper-utils libpaper1 \
   libtiff5 libxpm4 libxslt1.1 libzip4 wget ca-certificates && \
   wget http://prdownloads.sourceforge.net/lam/ldap-account-manager-${LAM_VERSION}.tar.bz2?download -O /tmp/ldap-account-manager-${LAM_VERSION}.tar.bz2 && \
-  tar xvf /tmp/ldap-account-manager-${LAM_VERSION}.tar.bz2 -C /var/lib/ && \
-  mv /var/lib/ldap-account-manager-${LAM_VERSION} /var/lib/ldap-account-manager && \
+  tar xvf /tmp/ldap-account-manager-${LAM_VERSION}.tar.bz2 -C /var/www/ && \
+  rm -rf /var/www/html && \
+  mv /var/www/ldap-account-manager-${LAM_VERSION} /var/www/html && \
   apt-get purge -y wget ca-certificates && apt-get autoremove -y && apt-get clean all && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN a2enmod && \
     ln -sf /dev/stdout /var/log/apache2/access.log && \
     ln -sf /dev/stderr /var/log/apache2/error.log && \
-    ln -sf /config/config.cfg /var/lib/ldap-account-manager/config/config.cfg && \
-    ln -sf /config/lam.conf /var/lib/ldap-account-manager/config/lam.conf
+    ln -sf /config/config.cfg /var/www/html/config/config.cfg && \
+    ln -sf /config/lam.conf /var/www/html/config/lam.conf
 
 COPY apache2-foreground /usr/local/bin/
 
-VOLUME /config /var/lib/ldap-account-manager/sess
+VOLUME /config /var/www/html/sess
 
 EXPOSE 80
 
