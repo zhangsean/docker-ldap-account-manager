@@ -21,9 +21,11 @@ RUN a2enmod && \
     ln -sf /dev/stderr /var/log/apache2/error.log && \
     ln -sf /config/config.cfg /var/www/html/config/config.cfg && \
     ln -sf /config/lam.conf /var/www/html/config/lam.conf && \
-    chown www-data:www-data /var/www/html/config && \
-    chown www-data:www-data /var/www/html/sess && \
-    chown www-data:www-data /var/www/html/tmp
+    chown -R www-data:www-data /var/www/html/config && \
+    chown -R www-data:www-data /var/www/html/sess && \
+    chown -R www-data:www-data /var/www/html/tmp
+
+USER www-data
 
 COPY apache2-foreground /usr/local/bin/
 
@@ -32,4 +34,3 @@ VOLUME /config /var/www/html/sess
 EXPOSE 80
 
 CMD ["apache2-foreground"]
-                                                                                                                                                                                                                                                                                                                                                                        
