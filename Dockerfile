@@ -8,7 +8,8 @@ RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends fontconfig-config fonts-dejavu fonts-dejavu-core fonts-dejavu-extra ghostscript gsfonts imagemagick-common libavahi-client3 libavahi-common-data \
   libavahi-common3 libcups2 libcupsfilters1 libcupsimage2 libcurl3 libfftw3-double3 libfontconfig1 libgd3 libgomp1 libgs9 libgs9-common libijs-0.35 \
   libjbig0 libjbig2dec0 liblcms2-2 liblqr-1-0 libltdl7 libpaper-utils libpaper1 \
-  libtiff5 libxpm4 libxslt1.1 libzip4 wget ca-certificates && \
+  libtiff5 libxpm4 libxslt1.1 libzip4 libzip-dev libghc-ldap-dev wget ca-certificates && \
+  docker-php-ext-install gettext zip ldap && \
   wget http://prdownloads.sourceforge.net/lam/ldap-account-manager-${LAM_VERSION}.tar.bz2?download -O /tmp/ldap-account-manager-${LAM_VERSION}.tar.bz2 && \
   tar xvf /tmp/ldap-account-manager-${LAM_VERSION}.tar.bz2 -C /var/www/ && \
   rm -rf /var/www/html && \
