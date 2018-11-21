@@ -281,6 +281,8 @@ logLevel: 4
 logDestination: SYSLOG
 EOF
 
+chown -R www-data:www-data /config
+
 touch /config/setup
 fi
 
