@@ -13,6 +13,7 @@ RUN apt-get update \
  && chown www-data:www-data /var/www/html/config  \
  && chown www-data:www-data /var/www/html/sess  \
  && chown www-data:www-data /var/www/html/tmp \
+ && mkdir /config \
  && chown www-data:www-data /config \
  && ln -sf /config/config.cfg /var/www/html/config/config.cfg \
  && ln -sf /config/lam.conf /var/www/html/config/lam.conf \
