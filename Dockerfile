@@ -1,7 +1,7 @@
 FROM php:7-apache
 MAINTAINER Sean Zhang <zxf2342@qq.com>
 
-ARG LAM_VERSION=6.5
+ARG LAM_VERSION=6.6
 
 RUN apt-get update \
  && apt-get install -y wget libzip-dev libghc-ldap-dev \
@@ -13,6 +13,7 @@ RUN apt-get update \
  && chown www-data:www-data /var/www/html/config  \
  && chown www-data:www-data /var/www/html/sess  \
  && chown www-data:www-data /var/www/html/tmp \
+ && chown www-data:www-data /config \
  && ln -sf /config/config.cfg /var/www/html/config/config.cfg \
  && ln -sf /config/lam.conf /var/www/html/config/lam.conf \
  && ln -sf /dev/stdout /var/log/apache2/access.log \
