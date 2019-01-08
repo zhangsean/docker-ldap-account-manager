@@ -1,4 +1,4 @@
-FROM php:7-apache
+FROM php:7.2-apache
 MAINTAINER Sean Zhang <zxf2342@qq.com>
 
 ARG LAM_VERSION=6.6
