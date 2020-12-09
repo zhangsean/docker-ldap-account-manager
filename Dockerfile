@@ -1,7 +1,7 @@
 FROM php:7.2-apache
 MAINTAINER Sean Zhang <zxf2342@qq.com>
 
-ARG LAM_VERSION=6.7
+ARG LAM_VERSION=7.4
 
 RUN apt-get update \
  && apt-get install -y wget libzip-dev libghc-ldap-dev \
